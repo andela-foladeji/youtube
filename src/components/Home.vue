@@ -34,6 +34,8 @@ export default {
     performSearch (term) {
       YTSearch({key: process.env.API_KEY, term}, (videos) => {
         this.results = videos
+        this.videoUrl = `https://www.youtube.com/embed/${this.results[0].videoId}`
+        this.videoDescription = this.results[0].snippet.description
       })
     },
 
